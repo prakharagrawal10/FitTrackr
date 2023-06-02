@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Submission</title>
+</head>
+<body>
+  <form id="myForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+
+    <input type="submit" value="Submit">
+  </form>
+
+  <script>
+    // Get the form element
+    var form = document.getElementById('myForm');
+
+    // Listen for form submission
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form submission
+
+      // Get the user input values
+      var nameInput = document.getElementById('name');
+      var passwordInput = document.getElementById('password');
+      var name = nameInput.value;
+      var password = passwordInput.value;
+
+      // Store the data in a cookie
+      document.cookie = "formData=" + JSON.stringify({ name: name, password: password });
+
+      // Clear the form inputs
+      nameInput.value = '';
+      passwordInput.value = '';
+
+      // Display a success message
+      alert('Form submitted successfully!');
+    });
+
+    // Retrieve the stored data from the cookie
+    function getCookieValue(cookieName) {
+      var name = cookieName + "=";
+      var decodedCookie = decodeURIComponent(document.cookie);
+      var cookieArray = decodedCookie.split(';');
+      for (var i = 0; i < cookieArray.length; i++) {
+        var cookie = cookieArray[i].trim();
+        if (cookie.indexOf(name) === 0) {
+          return cookie.substring(name.length, cookie.length);
+        }
+      }
+      return null;
+    }
+
+    // Retrieve the stored form data from the cookie
+    var storedData = getCookieValue('formData');
+
+    // Check if storedData is not null before parsing it as JSON
+    if (storedData !== null) {
+      var data = JSON.parse(storedData);
+
+      // Access the stored values
+      var name = data.name;
+      var password = data.password;
+
+      // Print the retrieved values
+      console.log('Name:', name);
+      console.log('Password:', password);
+    } else {
+      console.log('No data found in the cookie');
+    }
+  </script>
+</body>
+</html>

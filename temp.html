@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Vibrant Website</title>
+  <style>
+    /* Add CSS styles here */
+    :root {
+      --primary-color: #000000;
+      --secondary-color: #FF6B6B;
+      --accent-color: #6B6BFF;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Add styles for ribbon */
+    .ribbon {
+      background-color: var(--primary-color);
+      color: #fff;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .ribbon a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 10px;
+    }
+
+    .ribbon button {
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      margin-left: 10px;
+      font-size: 1rem;
+      font-family: Arial, sans-serif;
+      text-decoration: underline;
+    }
+
+    /* Add styles for dropdown menu */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #ddd;
+    }
+
+    /* Add styles for each section */
+    section {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  position: relative;
+  opacity: 0; /* Set initial opacity to 0 */
+  transition: opacity 0.8s ease-in-out;
+  will-change: opacity; /* Add will-change property for better performance */
+}
+
+.fade-in {
+  opacity: 1 !important; /* Override opacity to ensure it's fully visible */
+}
+
+
+    #hero {
+      background-color: var(--primary-color);
+    }
+
+    #about {
+      background-color: var(--secondary-color);
+    }
+
+    #contact {
+      background-color: var(--accent-color);
+    }
+
+    #aakash {
+      background-color: #FF6B6B;
+    }
+
+    #prakhar {
+      background-color: #6B6BFF;
+    }
+
+    /* Add styles for text */
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    /* Add styles for the footer */
+    footer {
+      background-color: var(--primary-color);
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* Add styles for navigation buttons */
+    .navigation {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 0;
+    }
+
+    .navigation button {
+      background-color: var(--primary-color);
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      margin: 0 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .navigation button:hover {
+      background-color: var(--accent-color);
+    }
+
+    /* Add styles for horizontal rule buttons */
+    .hr-buttons {
+      display: flex;
+      justify-content: center;
+      margin: 2rem 0;
+    }
+
+    .hr-buttons button {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.5rem;
+      cursor: pointer;
+      margin: 0 10px;
+      transition: color 0.3s ease-in-out;
+    }
+
+    .hr-buttons button:hover {
+      color: var(--accent-color);
+    }
+  </style>
+</head>
+<body>
+  <div class="ribbon">
+    <div>
+      <div class="dropdown">
+        <button class="button" onclick="toggleDropdown(1)">1</button>
+        <div class="dropdown-content" id="dropdown-1">
+          <a href="#">Option 1</a>
+          <a href="#">Option 2</a>
+          <a href="#">Option 3</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="button" onclick="toggleDropdown(2)">2</button>
+        <div class="dropdown-content" id="dropdown-2">
+          <a href="#">Option 1</a>
+          <a href="#">Option 2</a>
+          <a href="#">Option 3</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="button" onclick="toggleDropdown(3)">3</button>
+        <div class="dropdown-content" id="dropdown-3">
+          <a href="#">Option 1</a>
+          <a href="#">Option 2</a>
+          <a href="#">Option 3</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="button" onclick="toggleDropdown(4)">4</button>
+        <div class="dropdown-content" id="dropdown-4">
+          <a href="#">Option 1</a>
+          <a href="#">Option 2</a>
+          <a href="#">Option 3</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="button" onclick="toggleDropdown(5)">5</button>
+        <div class="dropdown-content" id="dropdown-5">
+          <a href="#">Option 1</a>
+          <a href="#">Option 2</a>
+          <a href="#">Option 3</a>
+        </div>
+      </div>
+    </div>
+    <div>
+      <a href="login.html">Log In</a>
+      <a href="reg.html">Sign Up</a>
+    </div>
+  </div>
+  <div class="navigation">
+    <button onclick="scrollToSection('hero')">Home</button>
+    <button onclick="scrollToSection('about')">About Us</button>
+    <button onclick="scrollToSection('contact')">Contact Us</button>
+    <button onclick="scrollToSection('aakash')">Aakash</button>
+    <button onclick="scrollToSection('prakhar')">Prakhar</button>
+  </div>
+  <section id="hero">
+    <h1>Welcome to our Website</h1>
+    <p>This is the hero section of our vibrant website.</p>
+  </section>
+  <section id="about">
+    <h1>About Us</h1>
+    <p>This is the about section of our vibrant website.</p>
+  </section>
+  <section id="contact">
+    <h1>Contact Us</h1>
+    <p>This is the contact section of our vibrant website.</p>
+  </section>
+  <section id="aakash">
+    <h1>Aakash's Section</h1>
+    <p>This is Aakash's section of our vibrant website.</p>
+  </section>
+  <section id="prakhar">
+    <h1>Prakhar's Section</h1>
+    <p>This is Prakhar's section of our vibrant website.</p>
+  </section>
+  <footer>
+    <p>&copy; 2023 Your Vibrant Website. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Add JavaScript code here
+    const sections = document.querySelectorAll('section');
+
+    // Intersection Observer options
+    const options = {
+      rootMargin: '0px',
+      threshold: 0.2
+    };
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in');
+        } else {
+          entry.target.classList.remove('fade-in');
+        }
+      });
+    }, options);
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+
+    // Function to scroll to a section
+    function scrollToSection(sectionId) {
+      const section = document.getElementById(sectionId);
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Function to toggle dropdown menu
+    function toggleDropdown(dropdownId) {
+      const dropdown = document.getElementById('dropdown-' + dropdownId);
+      dropdown.classList.toggle('show');
+    }
+  </script>
+</body>
+</html>
